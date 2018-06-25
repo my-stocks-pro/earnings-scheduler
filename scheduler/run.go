@@ -5,22 +5,24 @@ import (
 	"github.com/jasonlvhit/gocron"
 )
 
-func (s *TypeSchaduler) ApprovedTask() {
+func (s *TypeScheduler) ApprovedTask() {
 
-	data, errGET := s.HandleGET()
+	errGET := s.HandleGET()
 	if errGET != nil {
 		fmt.Println(errGET)
 	}
 
-	resp, errPOST := s.HandlePOST(data)
+	errPOST := s.HandlePOST()
 	if errPOST != nil {
 		fmt.Println(errPOST)
 	}
 
-	fmt.Println(resp)
+	fmt.Println(s.Requester.Response)
 }
 
-func (s *TypeSchaduler) Run() {
+func (s *TypeScheduler) Run() {
+
+	//TODO NEED use right time of schedule -> must change in conf
 
 	fmt.Println("NewScheduler Create")
 

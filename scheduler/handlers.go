@@ -6,39 +6,68 @@ import (
 	"bytes"
 )
 
-func (s *TypeSchaduler) HandleGET() ([]byte, error) {
+func (s *TypeScheduler) HandleGET() error {
 
-	req, errReq := http.NewRequest("GET", s.Config.URLGET, nil)
+	s.Requester.URL = s.Config.URLGET
+	s.Requester.Method = "GET"
+	s.Requester.RadisDB = s.Config.RadisDB
+
+	errReq := s.Requester.NewRequest()
 	if errReq != nil {
-		return nil, errReq
+		return errReq
 	}
 
-	client := http.Client{}
-	resp, errResp := client.Do(req)
-	if errResp != nil {
-		return nil, errResp
-	}
-
-	b, errReadAll := ioutil.ReadAll(resp.Body)
+	errReadAll := s.Requester.ReadAll()
 	if errReadAll != nil {
-		return nil, errReadAll
+		return errReadAll
 	}
 
-	return b, nil
+	return nil
 }
 
-func (s *TypeSchaduler) HandlePOST(data []byte) (*http.Response, error) {
+func (s *TypeScheduler) HandlePOST() error {
 
-	req, errReq := http.NewRequest("POST", s.Config.URLPOST, bytes.NewReader(data))
+	s.Requester.URL = s.Config.URLPOST
+	s.Requester.Method = "POST"
+	s.Requester.RadisDB = s.Config.RadisDB
+
+	errReq := s.Requester.NewRequest()
 	if errReq != nil {
-		return nil, errReq
+		return nil
 	}
+
+	return nil
+}
+
+func (r *TypeRequester) NewRequest() error {
+
+	req, errReq := http.NewRequest(r.Method, r.URL, bytes.NewReader(r.Body))
+	if errReq != nil {
+		return nil
+	}
+
+	q := req.URL.Query()
+	q.Add("namedb", r.RadisDB)
+	req.URL.RawQuery = q.Encode()
 
 	client := http.Client{}
 	resp, errResp := client.Do(req)
 	if errResp != nil {
-		return nil, errResp
+		return nil
 	}
 
-	return resp, nil
+	r.Response = resp
+
+	return nil
+}
+
+func (r *TypeRequester) ReadAll() error {
+	b, errReadAll := ioutil.ReadAll(r.Response.Body)
+	if errReadAll != nil {
+		return errReadAll
+	}
+
+	r.Body = b
+
+	return nil
 }
