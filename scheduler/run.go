@@ -5,19 +5,19 @@ import (
 	"github.com/jasonlvhit/gocron"
 )
 
-func (s *TypeScheduler) ApprovedTask() {
+func (s *TypeScheduler) EarningsTask() {
 
-	errGET := s.HandleGET()
+	data, errGET := s.Get()
 	if errGET != nil {
 		fmt.Println(errGET)
 	}
 
-	errPOST := s.HandlePOST()
+	resp, errPOST := s.Post(data)
 	if errPOST != nil {
 		fmt.Println(errPOST)
 	}
 
-	fmt.Println(s.Requester.Response)
+	fmt.Println(resp)
 }
 
 func (s *TypeScheduler) Run() {
@@ -27,6 +27,6 @@ func (s *TypeScheduler) Run() {
 	fmt.Println("NewScheduler Create")
 
 	approvedScheduler := gocron.NewScheduler()
-	approvedScheduler.Every(s.Config.Tick).Seconds().Do(s.ApprovedTask)
+	approvedScheduler.Every(s.Config.Tick).Seconds().Do(s.EarningsTask)
 	<-approvedScheduler.Start()
 }

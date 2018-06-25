@@ -1,7 +1,5 @@
 package scheduler
 
-import "net/http"
-
 type TypeReadisEarnings struct {
 	ID       string
 	Count    string
@@ -15,22 +13,9 @@ type TypeConfig struct {
 	RadisDB string
 }
 
-type TypeRequester struct {
-	URL      string
-	Method   string
-	RadisDB  string
-	Response *http.Response
-	Body     []byte
-}
-
 type TypeScheduler struct {
 	Config    *TypeConfig
 	RedisData *TypeReadisEarnings
-	Requester *TypeRequester
-}
-
-func NewRequester() *TypeRequester {
-	return &TypeRequester{}
 }
 
 func ReadisEarningsNew() *TypeReadisEarnings {
@@ -41,6 +26,5 @@ func New() *TypeScheduler {
 	return &TypeScheduler{
 		GetConfig(),
 		ReadisEarningsNew(),
-		NewRequester(),
 	}
 }
