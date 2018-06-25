@@ -2,6 +2,7 @@ package scheduler
 
 import (
 	"fmt"
+	"github.com/jasonlvhit/gocron"
 )
 
 func (s *TypeSchaduler) ApprovedTask() {
@@ -23,9 +24,7 @@ func (s *TypeSchaduler) Run() {
 
 	fmt.Println("NewScheduler Create")
 
-	fmt.Println(s.Config)
-
-	//approvedScheduler := gocron.NewScheduler()
-	//approvedScheduler.Every(s.Config.Tick).Seconds().Do(s.ApprovedTask)
-	//<-approvedScheduler.Start()
+	approvedScheduler := gocron.NewScheduler()
+	approvedScheduler.Every(s.Config.Tick).Seconds().Do(s.ApprovedTask)
+	<-approvedScheduler.Start()
 }
