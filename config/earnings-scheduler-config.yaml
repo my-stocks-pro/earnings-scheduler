@@ -1,0 +1,7 @@
+tick: 10
+
+urlget: "http://127.0.0.1:8001/api/get/redis"
+
+urlpost: "http://127.0.0.1:8003/earnings/post/redis"
+
+radisdb: 1
