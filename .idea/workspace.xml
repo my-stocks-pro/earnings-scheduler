@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="62091a89-7052-4dc2-b259-3b9198102d8d" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/earnings-scheduler-config.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/earnings-scheduler-config.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scheduler/config.go" beforeDir="false" afterPath="$PROJECT_DIR$/config/config.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scheduler/new.go" beforeDir="false" afterPath="$PROJECT_DIR$/scheduler/new.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scheduler/run.go" beforeDir="false" afterPath="$PROJECT_DIR$/scheduler/run.go" afterDir="false" />
-    </list>
+    <list default="true" id="62091a89-7052-4dc2-b259-3b9198102d8d" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -17,7 +11,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="main.go" pinned="false" current-in-tab="false">
+      <file leaf-file-name="main.go" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main.go">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="120">
@@ -38,11 +32,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="config.go" pinned="false" current-in-tab="true">
+      <file leaf-file-name="config.go" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/config/config.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="248">
-              <caret line="34" column="5" selection-start-line="34" selection-start-column="5" selection-end-line="34" selection-end-column="5" />
+            <state relative-caret-position="165">
+              <caret line="11" selection-start-line="11" selection-end-line="17" selection-end-column="23" />
               <folding>
                 <element signature="e#19#69#0" expanded="true" />
               </folding>
@@ -62,8 +56,8 @@
       <file leaf-file-name="handlers.go" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/scheduler/handlers.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-67">
-              <caret line="8" column="24" selection-start-line="8" selection-start-column="24" selection-end-line="8" selection-end-column="24" />
+            <state>
+              <caret column="17" lean-forward="true" selection-start-column="17" selection-end-column="17" />
               <folding>
                 <element signature="e#19#63#0" expanded="true" />
               </folding>
@@ -74,8 +68,8 @@
       <file leaf-file-name="earnings-scheduler-config.yaml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/config/earnings-scheduler-config.yaml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="45">
-              <caret line="3" column="12" selection-start-line="3" selection-end-line="3" selection-end-column="12" />
+            <state relative-caret-position="90">
+              <caret line="6" column="7" selection-start-line="6" selection-end-line="6" selection-end-column="7" />
             </state>
           </provider>
         </entry>
@@ -105,9 +99,9 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/scheduler/config.go" />
-        <option value="$PROJECT_DIR$/scheduler/handlers.go" />
         <option value="$PROJECT_DIR$/scheduler/new.go" />
         <option value="$PROJECT_DIR$/scheduler/run.go" />
+        <option value="$PROJECT_DIR$/scheduler/handlers.go" />
         <option value="$PROJECT_DIR$/main.go" />
         <option value="$PROJECT_DIR$/config/earnings-scheduler-config.yaml" />
         <option value="$PROJECT_DIR$/config/config.go" />
@@ -123,11 +117,10 @@
   <component name="NodePackageJsonFileManager">
     <packageJsonPaths />
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="1920" />
-    <option name="y" value="-2" />
+  <component name="ProjectFrameBounds" extendedState="7">
+    <option name="y" value="-30" />
     <option name="width" value="1920" />
-    <option name="height" value="1082" />
+    <option name="height" value="1110" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -199,10 +192,10 @@
     </configuration>
   </component>
   <component name="ToolWindowManager">
-    <frame x="1920" y="-2" width="1920" height="1082" extended-state="6" />
+    <frame x="67" y="25" width="1853" height="1055" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2524013" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.26175982" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
@@ -211,9 +204,9 @@
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.329718" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Terminal" order="7" weight="0.28872496" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.29718006" />
       <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.39936775" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39936775" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -238,8 +231,14 @@
           <properties />
           <option name="timeStamp" value="1" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/config/config.go</url>
+          <line>46</line>
+          <properties />
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="2" />
+      <option name="time" value="3" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
@@ -287,13 +286,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/scheduler/run.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="7" column="24" selection-start-line="7" selection-start-column="24" selection-end-line="7" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file:///usr/local/go/src/strings/compare.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
@@ -301,23 +293,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/main.go">
+    <entry file="file://$PROJECT_DIR$/scheduler/handlers.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="32" selection-start-line="8" selection-start-column="32" selection-end-line="8" selection-end-column="32" />
+        <state>
+          <caret column="17" lean-forward="true" selection-start-column="17" selection-end-column="17" />
           <folding>
-            <element signature="e#14#81#0" expanded="true" />
+            <element signature="e#19#63#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/scheduler/handlers.go">
+    <entry file="file://$PROJECT_DIR$/scheduler/run.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-67">
-          <caret line="8" column="24" selection-start-line="8" selection-start-column="24" selection-end-line="8" selection-end-column="24" />
-          <folding>
-            <element signature="e#19#63#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="60">
+          <caret line="7" column="24" selection-start-line="7" selection-start-column="24" selection-end-line="7" selection-end-column="24" />
         </state>
       </provider>
     </entry>
@@ -328,19 +317,29 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config/earnings-scheduler-config.yaml">
+    <entry file="file://$PROJECT_DIR$/config/config.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="12" selection-start-line="3" selection-end-line="3" selection-end-column="12" />
+        <state relative-caret-position="165">
+          <caret line="11" selection-start-line="11" selection-end-line="17" selection-end-column="23" />
+          <folding>
+            <element signature="e#19#69#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config/config.go">
+    <entry file="file://$PROJECT_DIR$/config/earnings-scheduler-config.yaml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="248">
-          <caret line="34" column="5" selection-start-line="34" selection-start-column="5" selection-end-line="34" selection-end-column="5" />
+        <state relative-caret-position="90">
+          <caret line="6" column="7" selection-start-line="6" selection-end-line="6" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="32" selection-start-line="8" selection-start-column="32" selection-end-line="8" selection-end-column="32" />
           <folding>
-            <element signature="e#19#69#0" expanded="true" />
+            <element signature="e#14#81#0" expanded="true" />
           </folding>
         </state>
       </provider>
