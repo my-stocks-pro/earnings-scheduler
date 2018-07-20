@@ -24,7 +24,7 @@ func (s *TypeScheduler) Run() {
 
 	//TODO NEED use right time of schedule -> must change in conf
 
-	fmt.Println("NewScheduler Create")
+	fmt.Println("NewScheduler EarningsTask Create")
 
 	approvedScheduler := gocron.NewScheduler()
 	approvedScheduler.Every(s.Config.Tick).Seconds().Do(s.EarningsTask)

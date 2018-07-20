@@ -8,13 +8,13 @@ import (
 
 func (s *TypeScheduler) Get() ([]byte, error) {
 
-	req, errReq := http.NewRequest("GET", s.Config.URLGET, nil)
+	req, errReq := http.NewRequest("GET", s.Config.MethodGET, nil)
 	if errReq != nil {
 		return nil, errReq
 	}
 
 	q := req.URL.Query()
-	q.Add("namedb", s.Config.RadisDB)
+	q.Add("namedb", s.Config.RedisDB)
 	req.URL.RawQuery = q.Encode()
 
 	client := http.Client{}
@@ -33,7 +33,7 @@ func (s *TypeScheduler) Get() ([]byte, error) {
 
 func (s *TypeScheduler) Post(data []byte) (*http.Response, error) {
 
-	req, errReq := http.NewRequest("POST", s.Config.URLPOST, bytes.NewReader(data))
+	req, errReq := http.NewRequest("POST", s.Config.MethodPOST, bytes.NewReader(data))
 	if errReq != nil {
 		return nil, errReq
 	}

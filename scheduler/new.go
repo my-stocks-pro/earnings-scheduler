@@ -1,20 +1,15 @@
 package scheduler
 
+import "github.com/my-stocks-pro/earnings-scheduler/config"
+
 type TypeReadisEarnings struct {
 	ID       string
 	Count    string
 	Earnings string
 }
 
-type TypeConfig struct {
-	Tick    uint64
-	URLGET  string
-	URLPOST string
-	RadisDB string
-}
-
 type TypeScheduler struct {
-	Config    *TypeConfig
+	Config    *config.TypeConfig
 	RedisData *TypeReadisEarnings
 }
 
@@ -24,7 +19,7 @@ func ReadisEarningsNew() *TypeReadisEarnings {
 
 func New() *TypeScheduler {
 	return &TypeScheduler{
-		GetConfig(),
+		config.GetConfig(),
 		ReadisEarningsNew(),
 	}
 }
