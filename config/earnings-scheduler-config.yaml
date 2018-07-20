@@ -1,6 +1,6 @@
 tick: 10
 host: 127.0.0.1
-hostapi: api
+hostapi: api-server
 hostearnings: earnings-service
 methodget: http://%s:8001/api/redis
 methodpost: http://%s:8003/earnings
