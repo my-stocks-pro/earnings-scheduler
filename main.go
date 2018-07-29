@@ -16,7 +16,7 @@ func main() {
 
 	//router.Run(":8002")
 
-	r, e := http.Get("http://127.0.0.1:8500/v1/catalog/services")
+	r, e := http.Get("http://127.0.0.1:8500/v1/catalog/service/approved-scheduler")
 	if e != nil {
 		fmt.Println(e)
 	}
