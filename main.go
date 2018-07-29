@@ -1,17 +1,33 @@
 package main
 
 import (
-	"github.com/my-stocks-pro/earnings-scheduler/scheduler"
-	"github.com/gin-gonic/gin"
+	"net/http"
+	"fmt"
+	"io/ioutil"
 )
 
 func main() {
 
-	router := gin.Default()
+	//router := gin.Default()
 
-	Scheduler := scheduler.New()
+	//Scheduler := scheduler.New()
 
-	go Scheduler.Run()
+	//go Scheduler.Run()
 
-	router.Run(":8002")
+	//router.Run(":8002")
+
+	r, e := http.Get("http://127.0.0.1:8500/v1/catalog/services")
+	if e != nil {
+		fmt.Println(e)
+	}
+
+
+	b, e1 := ioutil.ReadAll(r.Body)
+	defer r.Body.Close()
+
+	if e1 != nil {
+		fmt.Println(e1)
+	}
+	fmt.Println(string(b))
+
 }
