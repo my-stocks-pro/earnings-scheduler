@@ -24,7 +24,7 @@ func GetConfig() *TypeConfig {
 
 	conf := &TypeConfig{}
 
-	data, errReadFile := ioutil.ReadFile("config/earnings-scheduler-config.yaml")
+	data, errReadFile := ioutil.ReadFile("config/earnings-scheduler.yaml")
 	if errReadFile != nil {
 		log.Fatalf("error: %v", errReadFile)
 	}
