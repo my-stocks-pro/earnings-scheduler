@@ -9,6 +9,7 @@ import (
 )
 
 type TypeConfig struct {
+	Service      string
 	Tick         uint64
 	Host         string
 	HostAPI      string

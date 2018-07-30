@@ -1,3 +1,4 @@
+service: /earnings-scheduler
 tick: 10
 host: 127.0.0.1
 hostapi: api-server
