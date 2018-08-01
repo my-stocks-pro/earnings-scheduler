@@ -26,7 +26,7 @@ func main() {
 	case <-Scheduler.QuitOS:
 		log.Println("Shutdown Server by OS signal...")
 	case <-Scheduler.QuitRPC:
-		log.Println("Shutdown Server by quitRPC signal...")
+		log.Println("Shutdown Server by RPC signal...")
 	}
 
 	ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
@@ -37,15 +37,10 @@ func main() {
 
 	log.Println("Server exiting")
 
-
-
-	//router.Run(":8002")
-
 	//r, e := http.Get("http://127.0.0.1:8500/v1/catalog/service/approved-scheduler")
 	//if e != nil {
 	//	fmt.Println(e)
 	//}
-	//
 	//
 	//b, e1 := ioutil.ReadAll(r.Body)
 	//defer r.Body.Close()

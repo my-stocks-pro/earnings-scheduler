@@ -1,9 +1,9 @@
 FROM scratch
 
-ADD main /
+ADD earnings-scheduler /
 
 CMD mkdir config
 
-COPY config/approved-scheduler.yaml config/
+COPY config/earnings-scheduler.yaml config/
 
-ENTRYPOINT ["/main"]
+ENTRYPOINT ["/earnings-scheduler"]

@@ -33,7 +33,7 @@ func New() *TypeScheduler {
 		QuitRPC: make(chan bool),
 		Router:  router,
 		Server: &http.Server{
-			Addr:    ":8002",
+			Addr:    ":8001",
 			Handler: router,
 		},
 		Config:    config.GetConfig(),

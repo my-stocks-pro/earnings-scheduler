@@ -34,10 +34,9 @@ docker-build:
 run:
 	@echo "Docker run service"
 	$(DOCKERRUN) \
-	-q \
 	--rm \
 	-dt \
-	-p 8002:8002 \
+	-p 8001:8001 \
 	--name=$(BINARY) \
 	$(BINARY)
 
