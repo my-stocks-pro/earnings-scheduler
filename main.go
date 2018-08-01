@@ -2,20 +2,44 @@ package main
 
 import (
 	"github.com/my-stocks-pro/earnings-scheduler/scheduler"
-	"github.com/gin-gonic/gin"
+	"net/http"
+	"log"
+	"os"
+	"os/signal"
+	"context"
+	"time"
 )
 
 func main() {
-
-	router := gin.Default()
-
 	Scheduler := scheduler.New()
 
-	router.GET("/" + Scheduler.Config.Service, func(c *gin.Context) {
-		go Scheduler.Run()
-	})
+	go Scheduler.Routing()
 
-	router.Run(":8002")
+	go func() {
+		if err := Scheduler.Server.ListenAndServe(); err != nil && err != http.ErrServerClosed {
+			log.Fatalf("listen: %s\n", err)
+		}
+	}()
+
+	signal.Notify(Scheduler.QuitOS, os.Interrupt)
+	select {
+	case <-Scheduler.QuitOS:
+		log.Println("Shutdown Server by OS signal...")
+	case <-Scheduler.QuitRPC:
+		log.Println("Shutdown Server by quitRPC signal...")
+	}
+
+	ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
+	defer cancel()
+	if err := Scheduler.Server.Shutdown(ctx); err != nil {
+		log.Fatal("Server Shutdown: ", err)
+	}
+
+	log.Println("Server exiting")
+
+
+
+	//router.Run(":8002")
 
 	//r, e := http.Get("http://127.0.0.1:8500/v1/catalog/service/approved-scheduler")
 	//if e != nil {
