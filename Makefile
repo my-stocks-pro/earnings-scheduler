@@ -17,6 +17,7 @@ DOCKER=docker
 DOCKERBUILD=$(DOCKER) build
 DOCKERRUN=$(DOCKER) run
 DOCKERPUSH=$(DOCKER) push
+#AWS=alex
 
 GODEP=dep
 NEWDEP=$(GODEP) ensure
@@ -36,8 +37,9 @@ docker-build:
 	$(DOCKERBUILD) --no-cache -t $(AWSECR)/$(BIN) .
 
 docker-push:
+	@echo $(AWS)
 	@echo "Push Docker image to AWS ECR..."
-	echo $(aws --profile $1 --region eu-west-1 ecr get-login) | sed -e "s/-e none//" #magic
+	@aws --profile $(AWS) --region eu-west-1 ecr get-login | sed -e "s/-e none//"
 	$(DOCKERPUSH) $(AWSECR)/$(BIN)
 
 run:
