@@ -17,12 +17,12 @@ DOCKER=docker
 DOCKERBUILD=$(DOCKER) build
 DOCKERRUN=$(DOCKER) run
 DOCKERPUSH=$(DOCKER) push
-#AWS=alex
+AWS=alex
 
 GODEP=dep
 NEWDEP=$(GODEP) ensure
 
-AWSECR=848984447616.dkr.ecr.us-east-1.amazonaws.com
+AWSECR=848984447616.dkr.ecr.us-east-1.amazonaws.com/music-room
 
 all: go-build docker-build docker-push clean
 
@@ -34,13 +34,15 @@ go-build:
 docker-build:
 	@echo "Docker build service..."
 #	$(DOCKERBUILD) --no-cache -t $(BIN) .
-	$(DOCKERBUILD) --no-cache -t $(AWSECR)/$(BIN) .
+	$(DOCKERBUILD) --no-cache -t $(BIN) .
 
 docker-push:
-	@echo $(AWS)
 	@echo "Push Docker image to AWS ECR..."
-	@aws --profile $(AWS) --region eu-west-1 ecr get-login | sed -e "s/-e none//"
-	$(DOCKERPUSH) $(AWSECR)/$(BIN)
+	docker tag $(BIN) 848984447616.dkr.ecr.us-east-1.amazonaws.com/music-room
+	docker push 848984447616.dkr.ecr.us-east-1.amazonaws.com/music-room
+	#aws ecr get-login --no-include-email --region us-east-1 | sed 's|https://||'
+#	@aws --profile $(AWS) --region eu-west-1 ecr get-login --no-include-email | sed 's|https://||'
+	#$(DOCKERPUSH) $(AWSECR)/$(BIN)
 
 run:
 	@echo "Docker run service..."
