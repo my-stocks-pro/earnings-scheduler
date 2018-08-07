@@ -22,7 +22,7 @@ AWS=alex
 GODEP=dep
 NEWDEP=$(GODEP) ensure
 
-AWSECR=848984447616.dkr.ecr.us-east-1.amazonaws.com/music-room
+AWSECR=848984447616.dkr.ecr.us-east-1.amazonaws.com/$(BIN)
 
 all: go-build docker-build docker-push clean
 
@@ -33,16 +33,13 @@ go-build:
 
 docker-build:
 	@echo "Docker build service..."
-#	$(DOCKERBUILD) --no-cache -t $(BIN) .
 	$(DOCKERBUILD) --no-cache -t $(BIN) .
 
 docker-push:
 	@echo "Push Docker image to AWS ECR..."
-	docker tag $(BIN) 848984447616.dkr.ecr.us-east-1.amazonaws.com/music-room
-	docker push 848984447616.dkr.ecr.us-east-1.amazonaws.com/music-room
-	#aws ecr get-login --no-include-email --region us-east-1 | sed 's|https://||'
-#	@aws --profile $(AWS) --region eu-west-1 ecr get-login --no-include-email | sed 's|https://||'
-	#$(DOCKERPUSH) $(AWSECR)/$(BIN)
+	docker tag $(BIN):latest $(AWSECR):latest
+	eval $(aws ecr --profile alex get-login --no-include-email --region us-east-1 | sed 's|https://||')
+	docker push $(AWSECR):latest
 
 run:
 	@echo "Docker run service..."
