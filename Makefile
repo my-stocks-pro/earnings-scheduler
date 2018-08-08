@@ -54,3 +54,5 @@ clean:
 	@echo "Clean"
 	$(GOCLEAN)
 	rm -f $(BINARY)
+	docker rmi $(docker images -q)
+	docker rm $(docker ps -q -f status=exited)
