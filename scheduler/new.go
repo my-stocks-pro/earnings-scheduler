@@ -5,6 +5,8 @@ import (
 	"github.com/gin-gonic/gin"
 	"net/http"
 	"os"
+	"github.com/my-stocks-pro/earnings-scheduler/registrator"
+	"fmt"
 )
 
 type TypeReadisEarnings struct {
@@ -20,6 +22,7 @@ type TypeScheduler struct {
 	Server    *http.Server
 	Config    *config.TypeConfig
 	RedisData *TypeReadisEarnings
+	Services  *map[string][]string
 }
 
 func ReadisEarningsNew() *TypeReadisEarnings {
@@ -27,6 +30,12 @@ func ReadisEarningsNew() *TypeReadisEarnings {
 }
 
 func New() *TypeScheduler {
+
+	services, err := registrator.GetServices()
+	if err != nil {
+		fmt.Println(err)
+	}
+
 	router := gin.Default()
 	return &TypeScheduler{
 		QuitOS:  make(chan os.Signal),
@@ -38,5 +47,6 @@ func New() *TypeScheduler {
 		},
 		Config:    config.GetConfig(),
 		RedisData: ReadisEarningsNew(),
+		Services:  services,
 	}
 }
